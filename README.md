@@ -5,3 +5,4 @@ steps for building website hosted on GitHub
 2. link domain
 3. enable www.domain.com and domain.com
 4. enable http and https
+     check SSL/TLS Mode to see if https supported
