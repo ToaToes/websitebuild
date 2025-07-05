@@ -6,5 +6,5 @@ steps for building website hosted on GitHub
 3. enable www.domain.com and domain.com
 4. enable http and https -> 
      check SSL/TLS Mode to see if https supported <br>
-     Enforce HTTPS — Unavailable for your site because your domain is not properly configured to support HTTPS
+     <i>Enforce HTTPS — Unavailable for your site because your domain is not properly configured to support HTTPS<i/>
 
