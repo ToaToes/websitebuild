@@ -2,7 +2,7 @@
 steps for building website hosted on GitHub
 
 1. create io on github, html page for the project 
-2. link domain:
+2. link domain: <br>
    On domain host website, configure DNS point to github server and CNAME<br>
    A	     @	 185.199.108.153 <br>
    A	     @	 185.199.109.153 <br>
