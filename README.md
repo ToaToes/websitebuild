@@ -20,7 +20,7 @@ steps for building website hosted on GitHub
 # 中文:
 
 1. 打开域名提供服务商，添加DNS解析 <br>
-   找到DNS界面 -> 找到Record选项 -> 选择 Add Record（添加DNS Record）:
+   找到DNS界面 -> 找到Record选项 -> 选择 Add Record（在DNS Record里添加 github server ip）:
    ```
    (Type	Name	Value)
    A	    @	    185.199.108.153
