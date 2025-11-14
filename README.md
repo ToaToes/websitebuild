@@ -17,14 +17,22 @@ steps for building website hosted on GitHub
 
 
 
-#Chinese:
+# 中文:
 
 1. 打开域名提供服务商，添加DNS解析 <br>
    找到DNS界面 -> 找到Record选项 -> 选择 Add Record（添加DNS Record）:
-   '''
+   ```
    Type	Name	Value
    A	   @	   185.199.108.153
    A	   @	   185.199.109.153
    A	   @	   185.199.110.153
    A	   @	   185.199.111.153
-   '''
+   ```
+   继续添加www解析
+   ```
+   Type	   Name	   Value
+   CANAME   www      toatoes.github.io
+   ```
+
+2. 等待 DNS 生效 <br>
+   通常需要 5 分钟到 24 小时。
