@@ -42,6 +42,11 @@ Problems:
    </script>
    
    ```
+   not trigger JS alert
+   ```
+   看到的提示 “value must be greater than or equal to …” 不是来自 JavaScript，而是来自 HTML 内置验证（因为 会自动触发浏览器自己的验证）。
+   当 HTML5 自带验证失败时，会在你的 JS 之前阻止提交，因此你的 alert 根本不会运行。
+   ```
 4. checkbox default not checked -> result always shows all nomatter the selection: default all change to all "checked" for checkbox option
    ```
    <!-- Class Dropdown -->
@@ -89,6 +94,4 @@ Problems:
    }
    ```
    
-6. result page not show correct language:
-7. 看到的提示 “value must be greater than or equal to …” 不是来自 JavaScript，而是来自 HTML 内置验证（因为 <input type="date" min="YYYY-MM-DD"> 会自动触发浏览器自己的验证）。<br>
-当 HTML5 自带验证失败时，会在你的 JS 之前阻止提交，因此你的 alert 根本不会运行。
+5. result page not show correct language:
