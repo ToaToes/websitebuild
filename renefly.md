@@ -18,6 +18,23 @@ Problems:
    </script>
   
    ```
+   fire base auth comein too late, after page already render <br>
+   Add an “auth blocker” at the very top of <body>
+   ```
+   <body>
+     <div id="auth-blocker" style="
+       position: fixed;
+       inset: 0;
+       background: white;
+       z-index: 99999;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       font-size: 20px;
+     ">
+       Checking authentication…
+     </div>
+   ```
    
 2. User select previous date both select and input: Need submit listener handle date selection validation for manually innput
    ```
