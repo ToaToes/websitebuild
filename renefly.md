@@ -113,7 +113,7 @@ Problems:
    
 5. result page not show correct language:
 
-6. param.get() only get the first element not whole array:
+6. getValue() only get the first element not whole array:
    ```
    // Prepare displayed data
    const selectionData = {
