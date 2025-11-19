@@ -112,3 +112,36 @@ Problems:
    ```
    
 5. result page not show correct language:
+
+6. param.get() only get the first element not whole array:
+   ```
+   // Prepare displayed data
+   const selectionData = {
+      "日期": getValue("flightDate"),
+      "出发地": getValue("departure"),
+      "到达地": getValue("arrival"),
+      "舱等": getValue("class", "全部"), // getValue only fetch one element
+      "航司": getValue("airline", "全部"),
+      "仅限直飞": params.get("directFlight") ? "是" : "否"
+   };
+   ```
+   fix to ->
+   ```
+   const selectionData = {
+      "日期": getValue("flightDate"),
+      "出发地": getValue("departure"),
+      "到达地": getValue("arrival"),
+      
+      // multiple values support
+      "舱等": (() => {
+        const classes = params.getAll("class");
+        return classes.length > 0 ? classes.join(", ") : "全部";
+      })(),
+
+      "航司": (() => {
+        const airlines = params.getAll("airline");
+        return airlines.length > 0 ? airlines.join(", ") : "全部";
+      })(),
+      "仅限直飞": params.get("directFlight") ? "是" : "否"
+   };
+   ```
