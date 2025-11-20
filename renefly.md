@@ -35,8 +35,38 @@ Problems:
        Checking authentication…
      </div>
    ```
+
+   Firebase Auth persists the user session in normal browsing mode, but does NOT persist it in Private/Incognito mode.<br>
+   So:<br>
+   Normal browser tab: Firebase still has the user’s session stored → user is auto-logged-in → no login page.<br>
+   Private browser tab: Storage is empty → Firebase cannot find a session → login page appears.<br>
+   This is expected behavior unless you explicitly disable persistent login or force authentication checks on protected pages.<br>
+
    
-2. User select previous date both select and input: Need submit listener handle date selection validation for manually innput
+   ```
+   auth.setPersistence(firebase.auth.Auth.Persistence.NONE)
+   ```
+   This means Firebase NEVER saves the login session.<br>
+   So when your search.html loads:<br>
+   Firebase loads (no session saved)<br>
+   onAuthStateChanged fires with user = null<br>
+   Your code redirects to index.html instantly<br>
+   → This is expected behavior with Persistence.NONE.<br>
+   
+   If you use NONE, the user must log in again on every page, not just every tab.
+
+   You want:<br>
+   ✔ Opening a new tab → requires login<br>
+   ✔ But navigating within your site → should not lose login<br>
+   ```
+   //Replace:
+   auth.setPersistence(firebase.auth.Auth.Persistence.NONE)
+   //with:
+   auth.setPersistence(firebase.auth.Auth.Persistence.SESSION)
+   ```
+
+   
+1. User select previous date both select and input: Need submit listener handle date selection validation for manually innput
    ```
    <script>
     // ban user set previous date
@@ -145,3 +175,5 @@ Problems:
       "仅限直飞": params.get("directFlight") ? "是" : "否"
    };
    ```
+
+7. 
