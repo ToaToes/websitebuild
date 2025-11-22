@@ -176,4 +176,27 @@ Problems:
    };
    ```
 
-7. 
+7. After Frontend done, proceed to backend:
+   Set **CORS** -> CORS (Cross-Origin Resource Sharing) is a browser security mechanism that controls which websites are allowed to make <br>      requests to your server. <br> 
+   It exists to prevent one website from stealing data from another website without permission.<br>
+   without CORS browser blocked the requests
+
+   When you enable CORS on the backend, the backend responds with headers like:
+   ```
+   Access-Control-Allow-Origin: http://localhost:8000
+   Access-Control-Allow-Methods: POST, GET
+   Access-Control-Allow-Headers: Content-Type
+   ```
+
+   Set python environment:
+   ```
+   from fastapi import FastAPI
+   from fastapi.middleware.cors import CORSMiddleware
+   from pydantic import BaseModel
+   import uvicorn
+   ```
+   If you're using FastAPI, you can install (the same interpreter VS Code is using (VScode Crtl+Shift+P)) both:
+   ```
+   pip install "uvicorn[standard]" fastapi
+   ```
+   (Make sure python environment is set correctly. User variable PATH set, interperter set)
