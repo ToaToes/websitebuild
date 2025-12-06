@@ -200,3 +200,17 @@ Problems:
    pip install "uvicorn[standard]" fastapi
    ```
    (Make sure python environment is set correctly. User variable PATH set, interperter set)
+
+8. Safely handle sensitive info in public projects:
+
+   To safely handle:
+   ```
+   fetch("http://192.168.1.81:8001/search")
+   ```
+   
+   MUST:
+   ```
+   ✔ Add Firebase ID token to the request
+   ✔ Validate the token using Firebase Admin SDK on your backend
+   ```
+   This is the correct and industry-standard method.
