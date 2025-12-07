@@ -214,3 +214,19 @@ Problems:
    ✔ Validate the token using Firebase Admin SDK on your backend
    ```
    This is the correct and industry-standard method.
+
+   So Frontend uses firebaseConfig, This is client-side configuration only.
+   ```
+   It is not sensitive
+   → It is meant to be public
+   → It must stay in the browser
+   → You do not use it on the backend
+   ```
+
+   Backend uses Admin SDK with service account ->
+   Download service account JSON from Firebase console:
+   ```
+   Firebase Console → Project Settings → Service Accounts → “Generate new private key”
+   ```
+   This file contains private keys, so this MUST be kept secret.
+   
